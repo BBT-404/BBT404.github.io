@@ -1,8 +1,6 @@
 *{
- font-family:Helvetica;} 
+ font-family:Helvetica;
+ background-color: #BAE3F3;} 
 navBar{
-<ul>
- <li><a href="index.html">Home</a></li>
- <li><a href="showcase.html">Projects</a></li>
-</ul>
+background-color: #BAE3F3;
 }
