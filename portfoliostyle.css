@@ -1,2 +1,8 @@
 *{
  font-family:Helvetica;} 
+navBar{
+<ul>
+ <li><a href="index.html">Home</a></li>
+ <li><a href="showcase.html">Projects</a></li>
+</ul>
+}
