@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
+  <script>
+    function includeHTML() {
+    var z, i, elmnt, file, xhttp;
+      /*This code makes a loop to read each element of a html file:*/
+      z=document.getElementsByTagName("*");
+      for(i=0; i<z.length;i++) {
+        elmnt = z[i];
+        /*This code looks for the attribute name on this page that triggers the include script*/
+        file = elmnt.getAttribute("include-html");
+        if(file) {
+          /*This script requests the page of the attribute's inserted file name*/
+          nhttp = new XMLHttpRequest();
+          nhttp.onreadystatechange = function() {
+            if (this.readyState==4) {
+              if (this.status==200) {elmnt.innerHTML = this.responseText;}
+              if (this.status==404) {elmnt.innerHTML = "Page not found :(";}
+              /*This script removes the includer attribute*/
+              elmnt.removeAttribute("include-html");
+              includeHTML();
+            }
+          }
+          nhttp.open("GET",file,true);
+          nhttp.send();
+          /*Function end*/
+          return;
+        }
+      }
+    }
+  </script>
   <head>
     <link rel="stylesheet" href="portfoliostyle.css">
     <link rel="navbar" href="navBar.html">
   </head>
-  
+  <div include-html="navBar.html></div>
   <title>Brett Tolbert's Portfolio</title>
   <h1>Brett Tolbert</h1>
   <img src = "/CPhoto1.jpg">
   <p>Welcome! Feel free to peruse my portfolio work <ahref = "showcase.html">here</ahref> (currently a work in progress, courtesy of a second migration of my portfolio to GitHub).
 
 I'm someone who's long been interested in computing and computer games, and decided to choose Games Design to to unite the adjacent interests. My experience started in Scratch in 2015 and from then, I have learnt Python, Pygame, then Unity and more recently Unreal.</p>
+<script>
+  includeHTML;
+</script>
 </html>
