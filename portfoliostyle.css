@@ -1,10 +1,17 @@
 *{
  font-family:Helvetica;
  background-color: #BAE3F3;} 
-navBar{
-background-color: #BAE3F3;
-}
 
 h1{
  font-family:Verdana;
+}
+
+navBar{
+ background-color: #BAE3F3;
+ position: fixed;
+ top: 0;
+ width: 100%;
+ .active{
+  background-color: #55DDFF;
+ }
 }
